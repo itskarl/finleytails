@@ -193,17 +193,12 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-async function init() {
-  try {
-    const res = await fetch("marker_palettes.json");
-    palettes = await res.json();
-    if (loadHistory()) {
-      render();
-    } else {
-      regenerate();
-    }
-  } catch {
-    showToast("Failed to load marker_palettes.json");
+function init() {
+  palettes = MARKER_PALETTES;
+  if (loadHistory()) {
+    render();
+  } else {
+    regenerate();
   }
 }
 

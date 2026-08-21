@@ -178,6 +178,10 @@ def main():
 
     (PROJECT_DIR / "markers.json").write_text(json.dumps(markers, indent=1))
     (PROJECT_DIR / "marker_palettes.json").write_text(json.dumps(out))
+    # JS wrapper so index.html works from file:// (fetch is blocked there).
+    (PROJECT_DIR / "marker_palettes.js").write_text(
+        "const MARKER_PALETTES = " + json.dumps(out) + ";\n"
+    )
     unique_used = {e["code"] for p in out for e in p}
     delta_es = [e["deltaE"] for p in out for e in p]
     print(f"Wrote {len(out)} palettes -> marker_palettes.json")
