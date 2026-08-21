@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --header-height: 64px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hint {
+  font-size: 13px;
+  color: #888;
+}
+
+kbd {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-btn {
+  background: #f0f0f0;
+  border: none;
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  font-size: 16px;
+  color: #111;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: #e0e0e0;
+}
+
+.nav-btn:disabled {
+  color: #bbb;
+  cursor: default;
+}
+
+.old-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  user-select: none;
+}
+
+.old-toggle input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.old-toggle .switch {
+  width: 34px;
+  height: 20px;
+  border-radius: 10px;
+  background: #d0d0d0;
+  position: relative;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.old-toggle .switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: left 0.2s;
+}
+
+.old-toggle input:checked + .switch {
+  background: #111;
+}
+
+.old-toggle input:checked + .switch::after {
+  left: 16px;
+}
+
+.old-toggle input:focus-visible + .switch {
+  outline: 2px solid #4a90d9;
+  outline-offset: 2px;
+}
+
+#generate-btn {
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#generate-btn:hover {
+  background: #333;
+}
+
+#palette {
+  flex: 1;
+  display: flex;
+}
+
+.swatch {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 48px;
+  cursor: pointer;
+  position: relative;
+  transition: flex 0.2s;
+}
+
+.swatch:hover {
+  flex: 1.15;
+}
+
+.swatch .info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  padding: 0 12px;
+  user-select: none;
+}
+
+.swatch .code {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.swatch .name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.swatch .hex {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+.swatch .lock-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s;
+  line-height: 1;
+}
+
+.swatch:hover .lock-btn,
+.swatch.locked .lock-btn {
+  opacity: 1;
+}
+
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #111;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+  transition: transform 0.25s ease;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 640px) {
+  #palette {
+    flex-direction: column;
+  }
+
+  .swatch {
+    justify-content: center;
+    padding-bottom: 0;
+  }
+
+  .swatch .info {
+    gap: 2px;
+  }
+
+  .swatch .code {
+    font-size: 20px;
+  }
+
+  .swatch .name {
+    font-size: 13px;
+  }
+
+  .hint {
+    display: none;
+  }
+}
