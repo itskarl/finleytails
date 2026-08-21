@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palette Generator — Finley Tails</title>
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="palette-page">
+  <nav class="site-nav">
+    <a href="index.html" class="logo">Finley Tails</a>
+    <div class="nav-links">
+      <a href="index.html#books">Books</a>
+      <a href="palette.html" class="current">Palette Generator</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Palette Generator</h1>
+    <div class="controls">
+      <span class="hint"><kbd>Space</kbd> generate · <kbd>←</kbd><kbd>→</kbd> history · Click to copy</span>
+      <div class="nav-controls">
+        <button id="back-btn" class="nav-btn" title="Previous palette (←)" aria-label="Previous palette">&larr;</button>
+        <button id="forward-btn" class="nav-btn" title="Next palette (→)" aria-label="Next palette">&rarr;</button>
+      </div>
+      <label class="old-toggle" title="Show pre-rename (R2) codes and names">
+        <input type="checkbox" id="old-names-checkbox">
+        <span class="switch" aria-hidden="true"></span>
+        Old names
+      </label>
+      <button id="generate-btn">Generate</button>
+    </div>
+  </header>
+
+  <main id="palette"></main>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="marker_palettes.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -3,32 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Palette Generator</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Finley Tails — Coloring books for silly imaginations</title>
+  <link rel="stylesheet" href="site.css">
 </head>
-<body>
-  <header>
-    <h1>Palette Generator</h1>
-    <div class="controls">
-      <span class="hint"><kbd>Space</kbd> generate · <kbd>←</kbd><kbd>→</kbd> history · Click to copy</span>
-      <div class="nav-controls">
-        <button id="back-btn" class="nav-btn" title="Previous palette (←)" aria-label="Previous palette">&larr;</button>
-        <button id="forward-btn" class="nav-btn" title="Next palette (→)" aria-label="Next palette">&rarr;</button>
-      </div>
-      <label class="old-toggle" title="Show pre-rename (R2) codes and names">
-        <input type="checkbox" id="old-names-checkbox">
-        <span class="switch" aria-hidden="true"></span>
-        Old names
-      </label>
-      <button id="generate-btn">Generate</button>
+<body class="landing">
+  <nav class="site-nav">
+    <a href="index.html" class="logo">Finley Tails</a>
+    <div class="nav-links">
+      <a href="#books">Books</a>
+      <a href="palette.html">Palette Generator</a>
     </div>
-  </header>
+  </nav>
 
-  <main id="palette"></main>
+  <section class="hero">
+    <div class="dots" aria-hidden="true">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-blue"></span>
+      <span class="dot dot-green"></span>
+    </div>
+    <h1>Coloring books for <span class="accent-underline">silly</span> imaginations.</h1>
+    <p class="hero-sub">
+      Hand-drawn coloring adventures that do not take themselves too seriously.
+      Find our latest collections on Etsy and Amazon.
+    </p>
+    <div class="hero-cta">
+      <!-- TODO: replace # with real store links -->
+      <a class="btn btn-green" href="#">Shop on Etsy</a>
+      <a class="btn btn-orange" href="#">Amazon Storefront</a>
+    </div>
+  </section>
 
-  <div id="toast" class="toast" aria-live="polite"></div>
+  <section class="collections" id="books">
+    <div class="section-head">
+      <div>
+        <h2>Featured Collections</h2>
+        <p>New releases and fan favorites.</p>
+      </div>
+      <!-- TODO: replace # with books page / store link -->
+      <a href="#" class="view-all">View all books</a>
+    </div>
+    <div class="cards">
+      <!-- TODO: replace .cover placeholders with real cover images -->
+      <article class="card">
+        <div class="cover cover-woodland" role="img" aria-label="Woodland Whimsy cover placeholder">
+          <span class="cover-emoji">🦊</span>
+          <span class="cover-note">Cover art coming soon</span>
+        </div>
+        <div class="card-body">
+          <h3>Woodland Whimsy</h3>
+          <p>Silly forest friends</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover cover-ocean" role="img" aria-label="Ocean Wonders cover placeholder">
+          <span class="cover-emoji">🐋</span>
+          <span class="cover-note">Cover art coming soon</span>
+        </div>
+        <div class="card-body">
+          <h3>Ocean Wonders</h3>
+          <p>Goofy sea creatures</p>
+        </div>
+      </article>
+      <article class="card">
+        <div class="cover cover-cosmic" role="img" aria-label="Cosmic Cats cover placeholder">
+          <span class="cover-emoji">🐱</span>
+          <span class="cover-note">Cover art coming soon</span>
+        </div>
+        <div class="card-body">
+          <h3>Cosmic Cats</h3>
+          <p>Cats in space helmets</p>
+        </div>
+      </article>
+    </div>
+  </section>
 
-  <script src="marker_palettes.js"></script>
-  <script src="script.js"></script>
+  <section class="tool-cta">
+    <div class="tool-card">
+      <span class="badge">Coloring Tools</span>
+      <h2>Free palette generator</h2>
+      <p>
+        Spin up playful color combos and copy the hex codes straight to your
+        favorite coloring app.
+      </p>
+      <a class="btn btn-green" href="palette.html">Open the palette generator</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo">Finley Tails</span>
+        <p>Silly coloring books for curious minds.</p>
+      </div>
+      <div class="footer-links">
+        <!-- TODO: replace # with real store links -->
+        <a href="#">Etsy</a>
+        <a href="#">Amazon</a>
+        <a href="palette.html">Palette Generator</a>
+      </div>
+      <p class="copyright">© 2026 Finley Tails. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
