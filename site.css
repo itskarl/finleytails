@@ -7,6 +7,8 @@
   --green-dark: #4a8c4d;
   --orange: #ef8632;
   --orange-dark: #db7420;
+  --amazon: #c2680f;
+  --amazon-dark: #a8570c;
   --cream: #f7f1e2;
   --paper: #fdfbf6;
   --font-display: "Fredoka", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -230,6 +232,21 @@ h3,
 .btn-green:hover { background: var(--green-dark); }
 .btn-orange { background: var(--orange); }
 .btn-orange:hover { background: var(--orange-dark); }
+.btn-amazon { background: var(--amazon); }
+.btn-amazon:hover { background: var(--amazon-dark); }
+
+/* Buttons carrying the Etsy/Amazon badge look left-heavy with
+   symmetric padding since the badge already reads as leading
+   whitespace; ease off the left side to rebalance. */
+.btn:has(.icon-etsy),
+.btn:has(.icon-amazon) {
+  padding-left: 20px;
+}
+
+.cover-btn:has(.icon-etsy),
+.cover-btn:has(.icon-amazon) {
+  padding-left: 14px;
+}
 
 /* ---------- Icons ---------- */
 /* Single-color SVGs applied via mask so they inherit the button/link's
@@ -250,16 +267,52 @@ h3,
   mask-size: contain;
 }
 
-.icon-etsy { -webkit-mask-image: url("icons/etsy.svg"); mask-image: url("icons/etsy.svg"); }
-.icon-amazon { -webkit-mask-image: url("icons/amazon.svg"); mask-image: url("icons/amazon.svg"); }
 .icon-lock-locked { -webkit-mask-image: url("icons/lock-locked.svg"); mask-image: url("icons/lock-locked.svg"); }
 .icon-lock-unlocked { -webkit-mask-image: url("icons/lock-unlocked.svg"); mask-image: url("icons/lock-unlocked.svg"); }
+.icon-book-open { -webkit-mask-image: url("icons/book-open.svg"); mask-image: url("icons/book-open.svg"); }
+.icon-gift { -webkit-mask-image: url("icons/gift.svg"); mask-image: url("icons/gift.svg"); }
+.icon-palette { -webkit-mask-image: url("icons/palette.svg"); mask-image: url("icons/palette.svg"); }
+
+.nav-links a .btn-icon {
+  width: 15px;
+  height: 15px;
+  vertical-align: -3px;
+}
 
 .cover-btn .btn-icon,
 .footer-links a .btn-icon {
   width: 13px;
   height: 13px;
   vertical-align: -2px;
+}
+
+/* Etsy/Amazon icons already come as full-color circular badges, so
+   they're drawn as a plain background image (not a currentColor
+   mask like the other icons) to keep their own colors intact. */
+.icon-etsy,
+.icon-amazon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: -5px;
+  background-color: transparent;
+  -webkit-mask-image: none;
+  mask-image: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.icon-etsy { background-image: url("icons/etsy.svg"); }
+.icon-amazon { background-image: url("icons/amazon.svg"); }
+
+.cover-btn .icon-etsy,
+.cover-btn .icon-amazon,
+.footer-links a .icon-etsy,
+.footer-links a .icon-amazon {
+  width: 16px;
+  height: 16px;
+  vertical-align: -4px;
 }
 
 /* ---------- Featured collections ---------- */
@@ -373,11 +426,11 @@ h3,
 }
 
 .cover-btn-amazon {
-  background: var(--orange);
+  background: var(--amazon);
 }
 
 .cover-btn-amazon:hover {
-  background: var(--orange-dark);
+  background: var(--amazon-dark);
 }
 
 .card-body {
@@ -581,6 +634,11 @@ h3,
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
+.weekly-source-info .hero-cta .btn:has(.icon-etsy),
+.weekly-source-info .hero-cta .btn:has(.icon-amazon) {
+  padding-left: 14px;
+}
+
 .weekly-next {
   margin-top: 10px;
   font-size: 12px;
@@ -672,28 +730,45 @@ h3,
 
   .nav-links {
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: calc(100% + 8px);
+    left: 20px;
+    right: 20px;
     z-index: 100;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
+    gap: 2px;
     max-height: 0;
     overflow: hidden;
     background: #fff;
+    border-radius: 16px;
+    padding: 0 8px;
     box-shadow: 0 16px 32px rgba(31, 42, 58, 0.18);
-    transition: max-height 0.25s ease;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: max-height 0.25s ease, opacity 0.2s ease, transform 0.2s ease, padding 0.25s ease;
   }
 
   .nav-toggle-checkbox:checked ~ .nav-links {
-    max-height: 220px;
+    max-height: 260px;
+    padding: 8px;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .nav-links a {
-    padding: 14px 20px;
-    border-top: 1px solid #f0f0f0;
+    padding: 12px 14px;
+    border-radius: 10px;
     opacity: 1;
+    transition: background 0.15s;
+  }
+
+  .nav-links a:hover {
+    background: var(--cream);
+  }
+
+  .nav-links a.current {
+    background: var(--cream);
+    color: var(--orange-dark);
   }
 
   .hero {
