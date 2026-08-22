@@ -9,6 +9,15 @@
   --orange-dark: #db7420;
   --cream: #f7f1e2;
   --paper: #fdfbf6;
+  --font-display: "Fredoka", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+h1,
+h2,
+h3,
+.logo,
+.badge {
+  font-family: var(--font-display);
 }
 
 .landing,
@@ -41,8 +50,7 @@
 
 .palette-page .site-nav,
 .books-page .site-nav {
-  background: #fff;
-  border-bottom: 1px solid #eee;
+  background: var(--paper);
 }
 
 .page-header {

@@ -226,8 +226,9 @@ kbd {
 }
 
 .swatch .name {
-  font-size: 21px;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
   letter-spacing: -0.2px;
   line-height: 1.15;
 }
