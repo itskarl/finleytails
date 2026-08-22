@@ -302,7 +302,7 @@ h3,
 @media (hover: none) {
   .cover-actions {
     opacity: 1;
-    background: rgba(31, 42, 58, 0.35);
+    background: transparent;
   }
 }
 
