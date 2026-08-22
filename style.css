@@ -17,16 +17,6 @@ body {
   overflow: hidden;
 }
 
-header {
-  height: var(--header-height);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 24px;
-  background: #fff;
-  border-bottom: 1px solid #e5e5e5;
-}
-
 h1 {
   font-size: 18px;
   font-weight: 700;
@@ -43,7 +33,7 @@ h1 {
   height: var(--header-height);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 0 24px;
   background: #fff;
   border-top: 1px solid #e5e5e5;
@@ -294,16 +284,13 @@ kbd {
 }
 
 @media (max-width: 640px) {
-  header {
-    padding: 0 14px;
-  }
-
   .brand h1 {
     font-size: 15px;
   }
 
   .controls-bar {
     height: auto;
+    gap: 10px;
     padding: 10px 14px;
     padding-bottom: calc(10px + env(safe-area-inset-bottom));
   }
