@@ -379,6 +379,7 @@ h3,
 }
 
 .tool-card {
+  position: relative;
   max-width: 880px;
   margin: 0 auto;
   background: #fff;
@@ -386,6 +387,16 @@ h3,
   box-shadow: 0 4px 24px rgba(31, 42, 58, 0.07);
   text-align: center;
   padding: 64px 40px;
+}
+
+.mascot {
+  position: absolute;
+  top: -98px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 190px;
+  height: auto;
+  pointer-events: none;
 }
 
 .badge {
