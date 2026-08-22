@@ -668,6 +668,10 @@
     padding: 24px;
   }
 
+  .weekly-cover {
+    align-self: center;
+  }
+
   .weekly-source-info .hero-cta {
     justify-content: flex-start;
   }
