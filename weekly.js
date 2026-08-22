@@ -181,11 +181,11 @@ function renderWeekly() {
   const downloadName = `${book.title.replace(/[^a-z0-9]+/gi, "-")}-Free-Page.${ext.toLowerCase()}`;
 
   document.getElementById("weekly-page-img").src = page;
-  document.getElementById("weekly-page-img").alt = `Free coloring page from ${book.title}`;
+  document.getElementById("weekly-page-img").alt = `Free printable coloring page from the ${book.title} adult coloring book`;
   document.getElementById("weekly-source-card").style.setProperty("--accent", book.accent);
   document.getElementById("weekly-book-title").textContent = book.title;
   document.getElementById("weekly-cover-img").src = book.cover;
-  document.getElementById("weekly-cover-img").alt = `${book.title} cover`;
+  document.getElementById("weekly-cover-img").alt = `${book.title} adult coloring book cover`;
   document.getElementById("weekly-tagline").textContent = book.tagline;
   document.getElementById("weekly-etsy-link").href = book.etsy;
   document.getElementById("weekly-amazon-link").href = book.amazon;
