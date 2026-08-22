@@ -7,6 +7,7 @@ const WEEKLY_BOOKS = [
   {
     title: "Big Tiny World",
     tagline: "Tiny critters in big worlds",
+    accent: "#4a8c4d",
     cover: "covers/big-tiny-world.jpg",
     etsy: "https://www.etsy.com/listing/4382809777/big-tiny-world-coloring-book-pdfjpg-40",
     amazon: "https://www.amazon.com/Big-Tiny-World-Coloring-Book/dp/B0FVFBMXGH",
@@ -24,6 +25,7 @@ const WEEKLY_BOOKS = [
   {
     title: "Tired but Trying",
     tagline: "Relatable adulting humor",
+    accent: "#2f8fa6",
     cover: "covers/tired-but-trying.jpg",
     etsy: "https://www.etsy.com/listing/4309432994/tired-but-trying-funny-animals-coloring",
     amazon: "https://www.amazon.com/Tired-but-Trying-Easy-Color/dp/B0F8NSGVPY",
@@ -41,6 +43,7 @@ const WEEKLY_BOOKS = [
   {
     title: "Color This Cozy",
     tagline: "Guided prompts, animal scenes",
+    accent: "#c98a12",
     cover: "covers/color-this-cozy.jpg",
     etsy: "https://www.etsy.com/listing/4509660089/color-this-cozy-coloring-book-guided",
     amazon: "https://www.amazon.com/Color-This-Cozy-Coloring-Challenges/dp/B0H23PYS2T",
@@ -58,6 +61,7 @@ const WEEKLY_BOOKS = [
   {
     title: "Tired but Trying 2",
     tagline: "More relatable adulting humor",
+    accent: "#3f7cff",
     cover: "covers/tired-but-trying-2.jpg",
     etsy: "https://www.etsy.com/listing/4327570208/tired-but-trying-2-funny-animals",
     amazon: "https://www.amazon.com/dp/B0FG3C83GT",
@@ -76,6 +80,7 @@ const WEEKLY_BOOKS = [
   {
     title: "So Many Outfits!",
     tagline: "A bold-line fashion coloring book",
+    accent: "#d9467d",
     cover: "covers/so-many-outfits.jpg",
     etsy: "https://www.etsy.com/listing/4532546817/so-many-outfits-a-bold-line-coloring",
     amazon: "https://www.amazon.com/So-Many-Outfits-Fashion-Coloring/dp/B0H7FC542N",
@@ -93,6 +98,7 @@ const WEEKLY_BOOKS = [
   {
     title: "Cozy Critters with Big Butts",
     tagline: "Bold-line kawaii cozy humor",
+    accent: "#db7420",
     cover: "covers/cozy-critters-big-butts.jpg",
     etsy: "https://www.etsy.com/listing/4312236579/cozy-critters-with-big-butts-pdfjpg-40",
     amazon: "https://www.amazon.com/Cozy-Critters-Big-Butts-Bold-Line/dp/B0F6SXK31T",
@@ -108,6 +114,7 @@ const WEEKLY_BOOKS = [
   {
     title: "Cute, Cozy, Chaotic",
     tagline: "Cute critters, cozy scenes",
+    accent: "#8c5cf5",
     cover: "covers/cute-cozy-chaotic.jpg",
     etsy: "https://www.etsy.com/listing/4312235347/cute-cozy-chaotic-by-finley-tails-pdfjpg",
     amazon: "https://www.amazon.com/Cute-Cozy-Chaotic-Single%E2%80%91Sided-Light%E2%80%91Filled/dp/B0F5PXFTJ1",
@@ -125,6 +132,7 @@ const WEEKLY_BOOKS = [
   {
     title: "Cozy Critters with Big Butts 2",
     tagline: "Cozy critters, now in space",
+    accent: "#e5484d",
     cover: "covers/cozy-critters-big-butts-2.jpg",
     etsy: "https://www.etsy.com/listing/4343043609/cozy-critters-with-big-butts-coloring",
     amazon: "https://www.amazon.com/dp/B0FKRGFDHL",
@@ -169,9 +177,12 @@ function nextMondayLabel(now = Date.now()) {
 
 function renderWeekly() {
   const { book, page } = getWeeklyFeature();
+  const ext = page.split(".").pop().toUpperCase();
+  const downloadName = `${book.title.replace(/[^a-z0-9]+/gi, "-")}-Free-Page.${ext.toLowerCase()}`;
 
   document.getElementById("weekly-page-img").src = page;
   document.getElementById("weekly-page-img").alt = `Free coloring page from ${book.title}`;
+  document.getElementById("weekly-source-card").style.setProperty("--accent", book.accent);
   document.getElementById("weekly-book-title").textContent = book.title;
   document.getElementById("weekly-cover-img").src = book.cover;
   document.getElementById("weekly-cover-img").alt = `${book.title} cover`;
@@ -179,6 +190,11 @@ function renderWeekly() {
   document.getElementById("weekly-etsy-link").href = book.etsy;
   document.getElementById("weekly-amazon-link").href = book.amazon;
   document.getElementById("weekly-next").textContent = `Next free page: ${nextMondayLabel()}`;
+
+  const downloadLink = document.getElementById("weekly-download-link");
+  downloadLink.href = page;
+  downloadLink.download = downloadName;
+  document.getElementById("weekly-download-label").textContent = `Download ${ext}`;
 }
 
 renderWeekly();
