@@ -5,7 +5,28 @@ const toastEl = document.getElementById("toast");
 // Loaded from marker_palettes.json: array of 5-entry arrays, each entry
 // { hex, code, name, oldName, originalHex, deltaE }.
 let palettes = [];
+let filteredPalettes = [];
 let lastIndex = -1;
+
+// Limit generated palettes to colors available in a specific physical
+// Ohuhu marker set. "320" means no restriction.
+const SET_CODES = {
+  "120": new Set(OHUHU_SET_120),
+  "216": new Set(OHUHU_SET_216),
+};
+let markerSet = localStorage.getItem("markerSet") || "320";
+
+function paletteFitsSet(palette) {
+  if (markerSet === "320") return true;
+  const codes = SET_CODES[markerSet];
+  return palette.every((entry) => codes.has(entry.code));
+}
+
+function rebuildFilteredPalettes() {
+  filteredPalettes = markerSet === "320" ? palettes : palettes.filter(paletteFitsSet);
+  if (!filteredPalettes.length) filteredPalettes = palettes;
+  lastIndex = -1;
+}
 
 // Each entry: marker entry + { locked }
 let colors = [];
@@ -63,10 +84,10 @@ function goToHistory(index) {
 function pickPalette() {
   let index;
   do {
-    index = Math.floor(Math.random() * palettes.length);
-  } while (index === lastIndex && palettes.length > 1);
+    index = Math.floor(Math.random() * filteredPalettes.length);
+  } while (index === lastIndex && filteredPalettes.length > 1);
   lastIndex = index;
-  return palettes[index];
+  return filteredPalettes[index];
 }
 
 function generateColors() {
@@ -98,7 +119,8 @@ function render() {
 
     const lockBtn = document.createElement("button");
     lockBtn.className = "lock-btn";
-    lockBtn.textContent = color.locked ? "🔒" : "🔓";
+    lockBtn.style.color = textColor;
+    lockBtn.innerHTML = `<span class="btn-icon ${color.locked ? "icon-lock-locked" : "icon-lock-unlocked"}" aria-hidden="true"></span>`;
     lockBtn.title = color.locked ? "Unlock" : "Lock";
     lockBtn.setAttribute("aria-label", (color.locked ? "Unlock " : "Lock ") + color.hex);
     lockBtn.addEventListener("click", (e) => {
@@ -172,13 +194,24 @@ const forwardBtn = document.getElementById("forward-btn");
 backBtn.addEventListener("click", () => goToHistory(historyIndex - 1));
 forwardBtn.addEventListener("click", () => goToHistory(historyIndex + 1));
 
-const oldNamesCheckbox = document.getElementById("old-names-checkbox");
-oldNamesCheckbox.checked = showOld;
-oldNamesCheckbox.addEventListener("change", () => {
-  showOld = oldNamesCheckbox.checked;
+const oldNamesToggle = document.getElementById("old-names-toggle");
+oldNamesToggle.textContent = showOld ? "Old names" : "New names";
+oldNamesToggle.addEventListener("click", () => {
+  showOld = !showOld;
   localStorage.setItem("showOld", showOld);
+  oldNamesToggle.textContent = showOld ? "Old names" : "New names";
   showToast(showOld ? "Showing old names" : "Showing new names");
   render();
+});
+
+const markerSetSelect = document.getElementById("marker-set-select");
+markerSetSelect.value = markerSet;
+markerSetSelect.addEventListener("change", () => {
+  markerSet = markerSetSelect.value;
+  localStorage.setItem("markerSet", markerSet);
+  rebuildFilteredPalettes();
+  showToast(markerSet === "320" ? "Showing full 320 set" : `Limited to ${markerSet} set`);
+  regenerate();
 });
 
 document.addEventListener("keydown", (e) => {
@@ -196,6 +229,7 @@ document.addEventListener("keydown", (e) => {
 
 function init() {
   palettes = MARKER_PALETTES;
+  rebuildFilteredPalettes();
   if (loadHistory()) {
     render();
   } else {

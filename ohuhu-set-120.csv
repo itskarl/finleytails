@@ -1,0 +1,121 @@
+code,name,old_code
+Y07,Banana Cream,GY6
+Y111,Mustard,Y2
+Y26,Light Gold,Y3
+Y27,Sunflower,Y1
+Y28,Corn Yellow,Y6
+Y29,Melon Yellow,YR33
+Y213,Dark Marigold,YR2
+Y216,Caramel,YR1
+Y315,Olive Yellow,Y8
+Y415,Sand Storm,Y9
+Y611,Dark Sand,Y11
+YR04,Pastel Peach,R18
+YR07,Salmon Orange,YR4
+YR17,Sunset Orange,Y4
+YR111,Persimmon,Y10
+YR112,Orange,YR3
+YR33,Rose Cream,R19
+YR34,Peach Cream,R20
+YR39,Cinnamon,BR3
+YR313,Potato Brown,BR2
+YR515,Burnt Sienna,YR5
+E22,Lime Juice,GY173
+E212,Dusty Olive,Y7
+E415,Cedar brown,BR1
+E511,Chocolate Mocha,Y12
+E515,Black Brown,Y13
+R013,Tomato,Y5
+R014,Deep Vermilion,R2
+R015,Crimson,R3
+R16,Light Salmon,R21
+R28,Pink Carnation,R9
+R210,Deep Blush,R1
+R213,Pomegranate,R6
+R215,Morello Cherry,R8
+R38,Rose Pink,R23
+R46,Old Rose,R12
+R412,Cerise,R4
+R413,Amaranth,R5
+R514,Prune Juice,R7
+RV08,Pastel Pink,R10
+RV17,Pink,R22
+RV18,Bubblegum,R14
+RV19,Dahlia Pink,R15
+RV111,Hot Pink,RP6
+RV212,Rich Raspberry,RP1
+RV311,Pansy,P2
+RV314,Grape Juice,P1
+RV316,Grape Jelly,R16
+V010,Faded Violet,P4
+V13,Greyed Lavender,R11
+V18,Bright Lavender,P3
+V216,Morning Glory,R17
+V38,Deep Periwinkle,R24
+V416,Deep Purple,P5
+BV26,Pale Blue Violet,R25
+BV29,Iris,R13
+BV31,Cloud Blue,BG3
+BV38,Sky Blue,PB1
+BV310,Brilliant Blue,PB2
+BV314,Lapis Lazuli,PB3
+BV315,Cobalt Blue,PB4
+BV514,Vintage Navy,PB5
+B02,Light Minty Blue,BG4
+B08,Cotton Candy Blue,PB7
+B111,Pool Blue,PB8
+B114,Cerulean Blue,B64
+B115,Classic Blue,PB6
+B310,Blue Dusk,BGII03
+B315,Deep Cerulean,PB11
+B411,Rich Slate Blue,BGII05
+B415,Stormy Night,BGII09
+BG05,Light Sea Blue,BG68
+BG114,Faded Teal,PB9
+BG212,Bright Pine Green,G4
+BG215,Dark Pine Green,BG8
+BG311,Turquoise,PB10
+BG314,Peacock Green,BG6
+BG315,Castleton Green,BG7
+G013,Muted Turquoise,BG5
+G112,Pale Cobalt Green,G9
+G113,Dusty Jade Green,G6
+G114,Aged Pine Green,G5
+G36,Glass Green,G8
+G310,Shamrock Green,G2
+G311,Jade Green,G3
+G312,Emerald Green,G1
+G315,Dark Emerald,BG1
+G316,Deep Jade Green,BG2
+G43,Vintage Pale Green,GY172
+G49,Sour Apple,GY1
+G410,Grass Green,GY2
+YG06,Sugarcane,GY7
+YG012,Yellow Green,GY4
+YG015,Dark Olive,GY42
+YG211,Edamame,GY5
+YG212,Guacamole,GY8
+YG414,Dark Fern Green,GY43
+YG415,Cascade Green,G7
+YG510,Bud Green,GY3
+CG17,Cool Grey,CG5
+CG18,Icy Grey,CGII04
+CG25,Deep Grey,NG03
+BGY02,Pigeon Grey,BG9
+BGY15,Blue Steel Grey,GG5
+BGY18,Graphite Grey,GG9
+BGY24,Storm Grey,CGII07
+BGY25,Cracked Pepper,CGII08
+BGY35,Iron Grey,CGII09
+BGY38,Charcoal Grey,NG09
+YGY11,Collingwood Grey,WG01
+WG10,Porcelain,CGII00
+WG26,Silver Grey,WG3
+WG27,Antique Silver,WG4
+WG37,Dark Charcoal,WG09
+GG03,Silver Cloud,GG1
+GG05,Evergreen Fog,GG3
+GG10,Soft Cool Grey,CG2
+GG15,Dark Neutral Grey,NG07
+GG16,Dark Anchor Grey,NG06
+120,Black,120

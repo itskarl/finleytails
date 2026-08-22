@@ -75,11 +75,12 @@
           <button id="back-btn" class="nav-btn" title="Previous palette (←)" aria-label="Previous palette">&larr;</button>
           <button id="forward-btn" class="nav-btn" title="Next palette (→)" aria-label="Next palette">&rarr;</button>
         </div>
-        <label class="old-toggle" title="Show pre-rename (R2) codes and names">
-          <input type="checkbox" id="old-names-checkbox">
-          <span class="switch" aria-hidden="true"></span>
-          <span class="old-toggle-label">Old names</span>
-        </label>
+        <select id="marker-set-select" class="set-select" title="Limit palettes to a marker set" aria-label="Limit palettes to a marker set">
+          <option value="320">Full 320</option>
+          <option value="216">216 set</option>
+          <option value="120">120 set</option>
+        </select>
+        <button id="old-names-toggle" class="old-toggle" type="button" title="Toggle between new and pre-rename (R2) codes and names">New names</button>
         <button id="generate-btn">Generate</button>
       </div>
     </div>
@@ -88,6 +89,7 @@
   <div id="toast" class="toast" aria-live="polite"></div>
 
   <script src="marker_palettes.js"></script>
+  <script src="ohuhu_sets.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
