@@ -11,7 +11,8 @@
   --paper: #fdfbf6;
 }
 
-.landing {
+.landing,
+.books-page {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--ink);
@@ -21,6 +22,7 @@
 /* ---------- Nav ---------- */
 
 .site-nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,10 +38,30 @@
   background: transparent;
 }
 
-.palette-page .site-nav {
+.palette-page .site-nav,
+.books-page .site-nav {
   padding: 12px 24px;
   background: #fff;
   border-bottom: 1px solid #eee;
+}
+
+.page-header {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 56px 40px 0;
+  text-align: center;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 800;
+}
+
+.page-header p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 15px;
 }
 
 .site-nav .logo {
@@ -65,6 +87,28 @@
 .nav-links a:hover,
 .nav-links a.current {
   opacity: 1;
+}
+
+.nav-toggle-checkbox {
+  display: none;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ink);
 }
 
 /* ---------- Hero ---------- */
@@ -222,53 +266,75 @@
   box-shadow: 0 2px 10px rgba(31, 42, 58, 0.06);
 }
 
-.cover {
-  aspect-ratio: 3 / 4;
+.cover-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.cover-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-actions {
+  position: absolute;
+  inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 12px;
+  background: rgba(31, 42, 58, 0.55);
+  opacity: 0;
+  transition: opacity 0.18s;
 }
 
-.cover-emoji {
-  font-size: 64px;
+.cover-wrap:hover .cover-actions,
+.cover-wrap:focus-within .cover-actions {
+  opacity: 1;
 }
 
-.cover-note {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(31, 42, 58, 0.55);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+@media (hover: none) {
+  .cover-actions {
+    opacity: 1;
+    background: rgba(31, 42, 58, 0.35);
+  }
 }
 
-.cover-woodland {
-  background: linear-gradient(160deg, #f6ecd2, #cfe3b8 60%, #a9cf94);
+.cover-btn {
+  background: #fff;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.15s;
 }
 
-.cover-ocean {
-  background: linear-gradient(160deg, #eaf6fb, #bcdff0 60%, #8fc3e4);
-}
-
-.cover-cosmic {
-  background: linear-gradient(160deg, #f9e7f2, #e3c7ee 60%, #c9a3e8);
+.cover-btn:hover {
+  transform: translateY(-2px);
 }
 
 .card-body {
   padding: 18px 20px 20px;
+  background: var(--accent, #fff);
 }
 
 .card-body h3 {
   margin: 0;
   font-size: 17px;
   font-weight: 800;
+  color: #fff;
 }
 
 .card-body p {
   margin: 6px 0 0;
   font-size: 14px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ---------- Palette generator CTA ---------- */
@@ -403,6 +469,36 @@
 @media (max-width: 640px) {
   .site-nav {
     padding: 14px 20px;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 8px 16px rgba(31, 42, 58, 0.08);
+    transition: max-height 0.25s ease;
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-links {
+    max-height: 220px;
+  }
+
+  .nav-links a {
+    padding: 14px 20px;
+    border-top: 1px solid #f0f0f0;
+    opacity: 1;
   }
 
   .hero {

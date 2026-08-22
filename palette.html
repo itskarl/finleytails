@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Palette Generator — Finley Tails</title>
   <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="style.css">
@@ -10,26 +10,37 @@
 <body class="palette-page">
   <nav class="site-nav">
     <a href="index.html" class="logo">Finley Tails</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
     <div class="nav-links">
-      <a href="index.html#books">Books</a>
+      <a href="books.html">Books</a>
       <a href="palette.html" class="current">Palette Generator</a>
     </div>
   </nav>
 
   <header>
-    <h1>Palette Generator</h1>
+    <div class="brand">
+      <h1>Ohuhu Palette</h1>
+      <span class="brand-sub">finleytails.com</span>
+    </div>
     <div class="controls">
       <span class="hint"><kbd>Space</kbd> generate · <kbd>←</kbd><kbd>→</kbd> history · Click to copy</span>
-      <div class="nav-controls">
-        <button id="back-btn" class="nav-btn" title="Previous palette (←)" aria-label="Previous palette">&larr;</button>
-        <button id="forward-btn" class="nav-btn" title="Next palette (→)" aria-label="Next palette">&rarr;</button>
+      <div class="action-bar">
+        <div class="nav-controls">
+          <button id="back-btn" class="nav-btn" title="Previous palette (←)" aria-label="Previous palette">&larr;</button>
+          <button id="forward-btn" class="nav-btn" title="Next palette (→)" aria-label="Next palette">&rarr;</button>
+        </div>
+        <span class="action-divider" aria-hidden="true"></span>
+        <label class="old-toggle" title="Show pre-rename (R2) codes and names">
+          <input type="checkbox" id="old-names-checkbox">
+          <span class="switch" aria-hidden="true"></span>
+          <span class="old-toggle-label">Old names</span>
+        </label>
+        <span class="action-divider" aria-hidden="true"></span>
+        <button id="generate-btn">Generate</button>
       </div>
-      <label class="old-toggle" title="Show pre-rename (R2) codes and names">
-        <input type="checkbox" id="old-names-checkbox">
-        <span class="switch" aria-hidden="true"></span>
-        Old names
-      </label>
-      <button id="generate-btn">Generate</button>
     </div>
   </header>
 
