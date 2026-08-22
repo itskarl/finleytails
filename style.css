@@ -15,9 +15,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 header {
@@ -44,7 +41,7 @@ h1 {
 
 .brand-sub {
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
   color: #111;
   letter-spacing: 0.3px;
 }
