@@ -389,13 +389,14 @@ h3,
   padding: 64px 40px;
 }
 
-.mascot {
+.mascot-hero {
   position: absolute;
-  top: -98px;
+  top: 64px;
   left: 50%;
   transform: translateX(-50%);
-  width: 190px;
+  width: 150px;
   height: auto;
+  z-index: 1;
   pointer-events: none;
 }
 
