@@ -131,7 +131,7 @@ const WEEKLY_BOOKS = [
   },
   {
     title: "Cozy Critters with Big Butts 2",
-    tagline: "Cozy critters, now in space",
+    tagline: "Cozy critters, round two",
     accent: "#e5484d",
     cover: "covers/cozy-critters-big-butts-2.jpg",
     etsy: "https://www.etsy.com/listing/4343043609/cozy-critters-with-big-butts-coloring",

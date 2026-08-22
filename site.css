@@ -48,7 +48,7 @@
 .page-header {
   max-width: 1060px;
   margin: 0 auto;
-  padding: 56px 40px 0;
+  padding: 56px 40px 36px;
   text-align: center;
 }
 
@@ -239,16 +239,8 @@
   font-size: 15px;
 }
 
-.view-all {
-  color: var(--green-dark);
-  font-size: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.view-all:hover {
-  text-decoration: underline;
+.view-all-btn {
+  flex-shrink: 0;
 }
 
 .cards {
