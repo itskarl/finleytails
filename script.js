@@ -114,19 +114,19 @@ function render() {
     });
 
     const info = document.createElement("div");
-    info.className = "info";
+    info.className = "info " + (textColor === "#ffffff" ? "on-dark" : "on-light");
     info.style.color = textColor;
-
-    const codeLabel = document.createElement("span");
-    codeLabel.className = "code";
-    codeLabel.textContent = showOld ? color.oldCode : color.code;
 
     const nameLabel = document.createElement("span");
     nameLabel.className = "name";
     nameLabel.textContent = showOld ? color.oldName : color.name;
 
-    info.appendChild(codeLabel);
+    const codeLabel = document.createElement("span");
+    codeLabel.className = "code";
+    codeLabel.textContent = showOld ? color.oldCode : color.code;
+
     info.appendChild(nameLabel);
+    info.appendChild(codeLabel);
 
     const hexLabel = document.createElement("span");
     hexLabel.className = "hex";
