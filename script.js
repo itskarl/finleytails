@@ -177,6 +177,7 @@ oldNamesCheckbox.checked = showOld;
 oldNamesCheckbox.addEventListener("change", () => {
   showOld = oldNamesCheckbox.checked;
   localStorage.setItem("showOld", showOld);
+  showToast(showOld ? "Showing old names" : "Showing new names");
   render();
 });
 
