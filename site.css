@@ -261,6 +261,8 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
@@ -270,6 +272,7 @@
 .cover-wrap {
   position: relative;
   aspect-ratio: 1 / 1;
+  flex-shrink: 0;
   overflow: hidden;
 }
 
@@ -336,6 +339,10 @@
 }
 
 .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 18px 20px 20px;
   background: var(--accent, #fff);
 }
