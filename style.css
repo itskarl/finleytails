@@ -39,11 +39,14 @@ h1 {
   gap: 1px;
 }
 
-.brand-sub {
-  font-size: 12px;
-  font-weight: 700;
-  color: #111;
-  letter-spacing: 0.3px;
+.controls-bar {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
 }
 
 .controls {
@@ -192,7 +195,6 @@ kbd {
 #palette {
   flex: 1;
   display: flex;
-  padding-bottom: env(safe-area-inset-bottom);
   min-height: 0;
 }
 
@@ -293,16 +295,17 @@ kbd {
 
 @media (max-width: 640px) {
   header {
-    height: auto;
-    padding: 10px 14px;
+    padding: 0 14px;
   }
 
   .brand h1 {
     font-size: 15px;
   }
 
-  .brand-sub {
-    font-size: 9px;
+  .controls-bar {
+    height: auto;
+    padding: 10px 14px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
   }
 
   .controls {
