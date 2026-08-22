@@ -49,23 +49,13 @@ h1 {
 .controls {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .action-bar {
   display: flex;
   align-items: center;
-  gap: 2px;
-  background: #f4f4f4;
-  border-radius: 10px;
-  padding: 4px;
-}
-
-.action-divider {
-  width: 1px;
-  height: 18px;
-  background: #ddd;
-  margin: 0 4px;
+  gap: 6px;
 }
 
 .hint {
@@ -84,23 +74,34 @@ kbd {
 
 .nav-controls {
   display: flex;
-  gap: 2px;
+  gap: 6px;
+}
+
+/* Shared chip chrome for the toolbar controls: nav arrows, old-names
+   toggle, and Generate all read as one family of buttons. */
+.nav-btn,
+.old-toggle,
+#generate-btn {
+  height: 34px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  transition: background 0.15s, border-color 0.15s;
 }
 
 .nav-btn {
-  background: transparent;
-  border: none;
-  border-radius: 7px;
-  width: 28px;
-  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
   font-size: 15px;
   color: #333;
   cursor: pointer;
-  transition: background 0.15s;
 }
 
 .nav-btn:hover:not(:disabled) {
-  background: #e8e8e8;
+  background: #f2f2f2;
+  border-color: #d5d5d5;
 }
 
 .nav-btn:disabled {
@@ -114,10 +115,15 @@ kbd {
   gap: 6px;
   font-size: 12px;
   font-weight: 600;
-  color: #555;
+  color: #444;
   cursor: pointer;
   user-select: none;
-  padding: 0 6px;
+  padding: 0 10px;
+}
+
+.old-toggle:hover {
+  background: #f9f9f9;
+  border-color: #d5d5d5;
 }
 
 .old-toggle input {
@@ -165,18 +171,17 @@ kbd {
 
 #generate-btn {
   background: #111;
+  border-color: #111;
   color: #fff;
-  border: none;
-  border-radius: 7px;
-  padding: 7px 16px;
+  padding: 0 18px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.15s;
 }
 
 #generate-btn:hover {
   background: #333;
+  border-color: #333;
 }
 
 #palette {
@@ -273,15 +278,52 @@ kbd {
 @media (max-width: 640px) {
   header {
     height: auto;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 12px 16px;
+    padding: 10px 14px;
+  }
+
+  .brand h1 {
+    font-size: 15px;
+  }
+
+  .brand-sub {
+    font-size: 9px;
   }
 
   .controls {
-    width: 100%;
-    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  .action-bar {
+    gap: 4px;
+  }
+
+  .nav-controls {
+    gap: 4px;
+  }
+
+  .nav-btn,
+  .old-toggle,
+  #generate-btn {
+    height: 30px;
+  }
+
+  .nav-btn {
+    width: 30px;
+    font-size: 13px;
+  }
+
+  .old-toggle {
+    padding: 0 5px;
+  }
+
+  .old-toggle .switch {
+    width: 26px;
+    height: 15px;
+  }
+
+  #generate-btn {
+    padding: 0 10px;
+    font-size: 12px;
   }
 
   .old-toggle-label {
