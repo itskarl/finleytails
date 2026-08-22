@@ -62,22 +62,19 @@ h1 {
 }
 
 .hint {
-  display: inline-flex;
-  align-items: center;
   font-size: 13px;
-  line-height: 1;
+  line-height: 1.6;
   color: #888;
 }
 
 kbd {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   vertical-align: middle;
   background: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 3px 6px 2px;
+  margin: 0 2px;
   line-height: 1;
   font-size: 12px;
   font-family: inherit;
