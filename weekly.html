@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Free Page — Finley Tails</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="books-page">
+  <nav class="site-nav">
+    <a href="index.html" class="logo">Finley Tails</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
+    <label for="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="books.html">Books</a>
+      <a href="weekly.html" class="current">Weekly Free</a>
+      <a href="palette.html">Palette Generator</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <span class="badge">Free This Week</span>
+    <h1>A free page, every Monday</h1>
+    <p>One page from a different book each week &mdash; print it, color it, keep it.</p>
+  </header>
+
+  <section class="weekly-feature">
+    <div class="weekly-page-frame">
+      <img id="weekly-page-img" src="" alt="">
+    </div>
+  </section>
+
+  <section class="weekly-source">
+    <div class="weekly-source-card">
+      <img id="weekly-cover-img" class="weekly-cover" src="" alt="">
+      <div class="weekly-source-info">
+        <span class="weekly-source-label">This page is from</span>
+        <h2 id="weekly-book-title"></h2>
+        <p id="weekly-tagline"></p>
+        <div class="hero-cta">
+          <a id="weekly-etsy-link" class="btn btn-green" href="#" target="_blank" rel="noopener">Get the Book on Etsy (Digital)</a>
+          <a id="weekly-amazon-link" class="btn btn-orange" href="#" target="_blank" rel="noopener">Get it on Amazon</a>
+        </div>
+        <p id="weekly-next" class="weekly-next"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo">Finley Tails</span>
+        <p>Silly coloring books for curious minds.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.etsy.com/shop/FinleyTails" target="_blank" rel="noopener">Etsy</a>
+        <a href="https://www.amazon.com/stores/Finley-Tails/author/B0F9QR5VGS" target="_blank" rel="noopener">Amazon</a>
+        <a href="books.html">Books</a>
+        <a href="palette.html">Palette Generator</a>
+      </div>
+      <p class="copyright">© 2026 Finley Tails. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="weekly.js"></script>
+</body>
+</html>

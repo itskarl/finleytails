@@ -414,6 +414,96 @@
   margin-top: 30px;
 }
 
+/* ---------- Weekly free page ---------- */
+
+.page-header .badge {
+  margin-bottom: 16px;
+}
+
+.weekly-feature {
+  display: flex;
+  justify-content: center;
+  padding: 40px 40px 0;
+  background: var(--paper);
+}
+
+.weekly-page-frame {
+  width: 100%;
+  max-width: 640px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 32px rgba(31, 42, 58, 0.14);
+}
+
+.weekly-page-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.weekly-source {
+  background: var(--paper);
+  padding: 48px 40px 100px;
+}
+
+.weekly-source-card {
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--cream);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(31, 42, 58, 0.07);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+}
+
+.weekly-cover {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(31, 42, 58, 0.15);
+  flex-shrink: 0;
+}
+
+.weekly-source-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.weekly-source-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.weekly-source-info h2 {
+  margin: 6px 0 0;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.weekly-source-info > p {
+  margin: 8px 0 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.weekly-source-info .hero-cta {
+  justify-content: flex-start;
+  margin-top: 22px;
+}
+
+.weekly-next {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
@@ -537,5 +627,24 @@
   .section-head {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .weekly-feature {
+    padding: 24px 20px 0;
+  }
+
+  .weekly-source {
+    padding: 32px 20px 64px;
+  }
+
+  .weekly-source-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 24px;
+  }
+
+  .weekly-source-info .hero-cta {
+    justify-content: flex-start;
   }
 }
