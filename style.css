@@ -183,18 +183,15 @@ kbd {
 
 @keyframes swatch-enter {
   from {
-    transform: scaleY(0.85) translateY(14px);
-    opacity: 0;
+    clip-path: inset(0 0 100% 0);
   }
   to {
-    transform: scaleY(1) translateY(0);
-    opacity: 1;
+    clip-path: inset(0 0 0% 0);
   }
 }
 
 .swatch.swatch-enter {
-  transform-origin: bottom;
-  animation: swatch-enter 0.42s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation: swatch-enter 0.55s cubic-bezier(0.65, 0, 0.35, 1) backwards;
 }
 
 .swatch .info {
