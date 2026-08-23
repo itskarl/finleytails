@@ -181,6 +181,22 @@ kbd {
   flex: 1.15;
 }
 
+@keyframes swatch-enter {
+  from {
+    transform: scaleY(0.85) translateY(14px);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.swatch.swatch-enter {
+  transform-origin: bottom;
+  animation: swatch-enter 0.42s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
 .swatch .info {
   display: flex;
   flex-direction: column;

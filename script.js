@@ -78,7 +78,7 @@ function goToHistory(index) {
   historyIndex = index;
   colors = history[index].map((c) => ({ ...c }));
   saveHistory();
-  render();
+  render(true);
 }
 
 function pickPalette() {
@@ -106,13 +106,15 @@ function textColorFor(hex) {
   return luminance > 0.55 ? "#111111" : "#ffffff";
 }
 
-function render() {
+function render(animate = false) {
   backBtn.disabled = historyIndex <= 0;
   forwardBtn.disabled = historyIndex >= history.length - 1;
   paletteEl.innerHTML = "";
   colors.forEach((color, i) => {
+    const shouldAnimate = animate && !color.locked;
     const swatch = document.createElement("div");
-    swatch.className = "swatch" + (color.locked ? " locked" : "");
+    swatch.className = "swatch" + (color.locked ? " locked" : "") + (shouldAnimate ? " swatch-enter" : "");
+    if (shouldAnimate) swatch.style.animationDelay = `${i * 45}ms`;
     swatch.style.background = color.hex;
 
     const textColor = textColorFor(color.hex);
@@ -183,7 +185,7 @@ function showToast(message) {
 function regenerate() {
   generateColors();
   pushHistory();
-  render();
+  render(true);
 }
 
 generateBtn.addEventListener("click", regenerate);
