@@ -195,11 +195,11 @@ backBtn.addEventListener("click", () => goToHistory(historyIndex - 1));
 forwardBtn.addEventListener("click", () => goToHistory(historyIndex + 1));
 
 const oldNamesToggle = document.getElementById("old-names-toggle");
-oldNamesToggle.textContent = showOld ? "Old names" : "New names";
+oldNamesToggle.textContent = showOld ? "Show new" : "Show old";
 oldNamesToggle.addEventListener("click", () => {
   showOld = !showOld;
   localStorage.setItem("showOld", showOld);
-  oldNamesToggle.textContent = showOld ? "Old names" : "New names";
+  oldNamesToggle.textContent = showOld ? "Show new" : "Show old";
   showToast(showOld ? "Showing old names" : "Showing new names");
   render();
 });
