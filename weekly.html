@@ -41,23 +41,26 @@
   </nav>
 
   <header class="page-header">
-    <span class="badge">Free This Week</span>
-    <h1>A free page, every Monday</h1>
+    <h1>A <span class="text-accent">free</span> page, every <span class="text-accent">Monday</span></h1>
     <p>Print it, color it, keep it. Free, and different every week.</p>
   </header>
 
   <section class="weekly-feature">
+    <div class="weekly-feature-row">
+      <span class="badge">Free This Week</span>
+      <a id="weekly-download-link" class="btn btn-green weekly-download-btn" href="#" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v13"></path>
+          <path d="M6 11l6 6 6-6"></path>
+          <path d="M5 21h14"></path>
+        </svg>
+        <span id="weekly-download-label">Download</span>
+      </a>
+    </div>
     <div class="weekly-page-frame">
       <img id="weekly-page-img" src="" alt="">
     </div>
-    <a id="weekly-download-link" class="btn btn-green weekly-download-btn" href="#" download>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M12 3v13"></path>
-        <path d="M6 11l6 6 6-6"></path>
-        <path d="M5 21h14"></path>
-      </svg>
-      <span id="weekly-download-label">Download</span>
-    </a>
+    <p id="weekly-next" class="weekly-next"></p>
   </section>
 
   <section class="weekly-source">
@@ -71,7 +74,6 @@
           <a id="weekly-etsy-link" class="btn btn-green" href="#" target="_blank" rel="noopener"><span class="btn-icon icon-etsy" aria-hidden="true"></span>Get the Book on Etsy (Digital)</a>
           <a id="weekly-amazon-link" class="btn btn-amazon" href="#" target="_blank" rel="noopener"><span class="btn-icon icon-amazon" aria-hidden="true"></span>Get it on Amazon</a>
         </div>
-        <p id="weekly-next" class="weekly-next"></p>
       </div>
     </div>
   </section>

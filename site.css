@@ -12,6 +12,21 @@
   --cream: #f7f1e2;
   --paper: #fdfbf6;
   --font-display: "Fredoka", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* Retro horizontal bands, boldest first and tapering to nothing —
+     used as a muted divider anchored just below the page header on
+     the Books and Weekly Free pages. */
+  --retro-top-stripes: linear-gradient(
+    to bottom,
+    rgba(140, 74, 107, 0.28) 0px, rgba(140, 74, 107, 0.28) 8px, transparent 8px, transparent 14px,
+    rgba(168, 87, 12, 0.26) 14px, rgba(168, 87, 12, 0.26) 19px, transparent 19px, transparent 24px,
+    rgba(194, 104, 15, 0.25) 24px, rgba(194, 104, 15, 0.25) 28px, transparent 28px, transparent 33px,
+    rgba(215, 106, 92, 0.24) 33px, rgba(215, 106, 92, 0.24) 36px, transparent 36px, transparent 40px,
+    rgba(226, 121, 74, 0.22) 40px, rgba(226, 121, 74, 0.22) 43px, transparent 43px, transparent 47px,
+    rgba(239, 134, 50, 0.21) 47px, rgba(239, 134, 50, 0.21) 49px, transparent 49px, transparent 53px,
+    rgba(245, 158, 11, 0.2) 53px, rgba(245, 158, 11, 0.2) 55px, transparent 55px, transparent 59px,
+    rgba(245, 180, 49, 0.17) 59px, rgba(245, 180, 49, 0.17) 60px, transparent 60px, transparent 64px,
+    rgba(251, 191, 83, 0.15) 64px, rgba(251, 191, 83, 0.15) 65px, transparent 65px, transparent 90px
+  );
 }
 
 h1,
@@ -56,10 +71,28 @@ h3,
 }
 
 .page-header {
+  position: relative;
   max-width: 1060px;
   margin: 0 auto;
   padding: 56px 40px 36px;
   text-align: center;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  top: 0;
+  height: 90px;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: var(--retro-top-stripes);
+  pointer-events: none;
+}
+
+.page-header > * {
+  position: relative;
 }
 
 .page-header h1 {
@@ -186,6 +219,10 @@ h3,
 
 .accent-underline {
   border-bottom: 4px solid var(--orange);
+}
+
+.text-accent {
+  color: var(--orange);
 }
 
 .hero-sub {
@@ -321,6 +358,11 @@ h3,
 .collections {
   background: var(--cream);
   padding: 90px 40px 100px;
+}
+
+.books-page .collections {
+  background: var(--paper);
+  padding-top: 40px;
 }
 
 .section-head {
@@ -700,17 +742,21 @@ h3,
 
 /* ---------- Weekly free page ---------- */
 
-.page-header .badge {
-  margin-bottom: 16px;
-}
-
 .weekly-feature {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 40px 40px 0;
+  padding: 8px 40px 0;
   background: var(--paper);
+}
+
+.weekly-feature-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 640px;
 }
 
 .weekly-page-frame {
@@ -731,12 +777,16 @@ h3,
 .weekly-download-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 999px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1), 0 3px 10px rgba(31, 42, 58, 0.12);
 }
 
 .weekly-download-btn svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   flex-shrink: 0;
 }
 
@@ -802,7 +852,6 @@ h3,
 .weekly-source-info .hero-cta .btn {
   padding: 10px 18px;
   font-size: 13px;
-  border: 2px solid rgba(255, 255, 255, 0.6);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
@@ -812,9 +861,8 @@ h3,
 }
 
 .weekly-next {
-  margin-top: 10px;
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  color: var(--muted);
 }
 
 /* ---------- Footer ---------- */
@@ -999,7 +1047,7 @@ h3,
   }
 
   .weekly-feature {
-    padding: 24px 20px 0;
+    padding: 8px 20px 0;
   }
 
   .weekly-source {
