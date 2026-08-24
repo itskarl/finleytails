@@ -146,9 +146,13 @@ const WEEKLY_BOOKS = [
   },
 ];
 
-// Fixed Monday anchor (UTC) so every visitor, in any timezone, sees the
-// same feature switch over on the same real-world week.
-const WEEK_EPOCH = Date.UTC(2026, 0, 5);
+// Fixed Monday anchor, timed to US Eastern midnight (fixed UTC-5/EST,
+// not DST-aware) rather than UTC midnight: most of the audience is in the
+// US and Western Europe, and this lands the swap right at Monday 12am
+// Eastern while still landing comfortably within Monday morning for
+// Western Europe — UTC midnight instead flips Sunday evening for the US.
+const EASTERN_OFFSET_MS = 5 * 60 * 60 * 1000;
+const WEEK_EPOCH = Date.UTC(2026, 0, 5, 5); // Mon Jan 5 2026 00:00 America/New_York
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 function currentWeekNumber(now = Date.now()) {
@@ -168,11 +172,13 @@ function getWeeklyFeature(now = Date.now()) {
 }
 
 function nextMondayLabel(now = Date.now()) {
-  const d = new Date(now);
-  const day = d.getUTCDay(); // 0 Sun ... 1 Mon
+  const eastern = new Date(now - EASTERN_OFFSET_MS);
+  const day = eastern.getUTCDay(); // 0 Sun ... 1 Mon
   const daysUntilMonday = mod(1 - day, 7) || 7;
-  d.setUTCDate(d.getUTCDate() + daysUntilMonday);
-  return d.toLocaleDateString(undefined, { month: "long", day: "numeric" });
+  eastern.setUTCDate(eastern.getUTCDate() + daysUntilMonday);
+  eastern.setUTCHours(0, 0, 0, 0);
+  const real = new Date(eastern.getTime() + EASTERN_OFFSET_MS);
+  return real.toLocaleDateString(undefined, { month: "long", day: "numeric" });
 }
 
 function renderWeekly() {
