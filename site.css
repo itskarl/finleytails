@@ -956,7 +956,8 @@ h3,
   .book-card-cover {
     align-self: stretch;
     width: 100%;
-    height: 200px;
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
   .book-card-cover img {
