@@ -44,13 +44,16 @@
   <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="palette-page">
   <nav class="site-nav">
-    <a href="index.html" class="logo">Finley<span class="text-accent">Tails</span>.com</a>
+    <div class="nav-brand">
+      <a href="index.html" class="logo">Finley<span class="text-accent">Tails</span>.com</a>
+      <span class="nav-subtitle">Ohuhu Color Palette Generator</span>
+    </div>
     <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
     <label for="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
@@ -74,6 +77,15 @@
         <div class="nav-controls">
           <button id="back-btn" class="nav-btn" title="Previous palette (←)" aria-label="Previous palette">&larr;</button>
           <button id="forward-btn" class="nav-btn" title="Next palette (→)" aria-label="Next palette">&rarr;</button>
+          <button id="share-btn" class="nav-btn" type="button" title="Copy share link" aria-label="Copy share link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </button>
         </div>
         <select id="marker-set-select" class="set-select" title="Limit palettes to a marker set" aria-label="Limit palettes to a marker set">
           <option value="320">Full 320</option>
@@ -90,6 +102,7 @@
 
   <script src="marker_palettes.js"></script>
   <script src="ohuhu_sets.js"></script>
+  <script src="markers.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

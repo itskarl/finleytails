@@ -114,6 +114,15 @@ h3,
   text-decoration: none;
 }
 
+.nav-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-subtitle {
+  display: none;
+}
+
 .nav-links {
   display: flex;
   gap: 28px;
@@ -947,6 +956,14 @@ h3,
 @media (max-width: 640px) {
   .site-nav {
     padding: 14px 20px;
+  }
+
+  .nav-subtitle {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-top: 2px;
   }
 
   .book-card {

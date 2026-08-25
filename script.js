@@ -28,6 +28,14 @@ function rebuildFilteredPalettes() {
   lastIndex = -1;
 }
 
+// Full Ohuhu marker catalog (from markers.json), keyed by code, so a
+// shared palette can be resolved even if its markers never happen to be
+// the nearest match in any generated palette.
+const MARKERS_BY_CODE = {};
+MARKERS.forEach((m) => {
+  MARKERS_BY_CODE[m.code] = m;
+});
+
 // Each entry: marker entry + { locked }
 let colors = [];
 
@@ -174,6 +182,27 @@ async function copyHex(hex) {
   }
 }
 
+function buildShareUrl() {
+  const url = new URL(location.href);
+  url.search = "";
+  url.searchParams.set("c", colors.map((c) => c.code).join(","));
+  return url.toString();
+}
+
+// Reads a `?c=code,code,...` share link and, if every code resolves to a
+// known marker, loads it as the current palette. Returns false (and
+// leaves `colors` untouched) for a missing or unrecognized link.
+function loadSharedPalette() {
+  const raw = new URLSearchParams(location.search).get("c");
+  if (!raw) return false;
+  const codes = raw.split(",");
+  const found = codes.map((code) => MARKERS_BY_CODE[code]).filter(Boolean);
+  window.history.replaceState(null, "", location.pathname);
+  if (found.length !== codes.length || found.length === 0) return false;
+  colors = found.map((entry) => ({ ...entry, locked: false }));
+  return true;
+}
+
 let toastTimer;
 function showToast(message) {
   toastEl.textContent = message;
@@ -195,6 +224,16 @@ const forwardBtn = document.getElementById("forward-btn");
 
 backBtn.addEventListener("click", () => goToHistory(historyIndex - 1));
 forwardBtn.addEventListener("click", () => goToHistory(historyIndex + 1));
+
+const shareBtn = document.getElementById("share-btn");
+shareBtn.addEventListener("click", async () => {
+  try {
+    await navigator.clipboard.writeText(buildShareUrl());
+    showToast("Share link copied");
+  } catch {
+    showToast("Copy failed");
+  }
+});
 
 const oldNamesToggle = document.getElementById("old-names-toggle");
 oldNamesToggle.textContent = showOld ? "Show new" : "Show old";
@@ -232,7 +271,12 @@ document.addEventListener("keydown", (e) => {
 function init() {
   palettes = MARKER_PALETTES;
   rebuildFilteredPalettes();
-  if (loadHistory()) {
+  const hadHistory = loadHistory();
+  if (loadSharedPalette()) {
+    pushHistory();
+    render(true);
+    showToast("Loaded shared palette");
+  } else if (hadHistory) {
     render();
   } else {
     regenerate();
