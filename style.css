@@ -98,6 +98,12 @@ kbd {
   cursor: pointer;
 }
 
+.nav-btn .btn-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0;
+}
+
 .nav-btn:hover:not(:disabled) {
   background: #f2f2f2;
   border-color: #d5d5d5;
@@ -169,7 +175,7 @@ kbd {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
   padding-bottom: 48px;
   cursor: pointer;
@@ -197,28 +203,32 @@ kbd {
 .swatch .info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 6px;
-  text-align: left;
+  text-align: center;
   padding: 0 16px;
   user-select: none;
 }
 
+.swatch .name-row {
+  display: contents;
+}
+
 .swatch .name {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.2px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
   line-height: 1.15;
 }
 
 .swatch .code {
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  padding: 5px 12px;
+  padding: 6px 14px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.28);
 }
@@ -337,21 +347,36 @@ kbd {
   }
 
   .swatch {
+    align-items: flex-start;
     justify-content: center;
     padding-bottom: 0;
   }
 
   .swatch .info {
-    gap: 5px;
+    align-items: flex-start;
+    text-align: left;
+    gap: 6px;
+  }
+
+  .swatch .name-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
   }
 
   .swatch .name {
     font-size: 14px;
   }
 
+  .swatch .hex::before {
+    content: "\2022";
+    margin-right: 6px;
+    opacity: 0.6;
+  }
+
   .swatch .code {
-    font-size: 14px;
-    padding: 4px 10px;
+    font-size: 22px;
+    padding: 7px 15px;
   }
 
   .hint {

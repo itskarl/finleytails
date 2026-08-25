@@ -319,6 +319,8 @@ h3,
 .icon-gift { -webkit-mask-image: url("icons/gift.svg"); mask-image: url("icons/gift.svg"); }
 .icon-palette { -webkit-mask-image: url("icons/palette.svg"); mask-image: url("icons/palette.svg"); }
 .icon-download { -webkit-mask-image: url("icons/download.svg"); mask-image: url("icons/download.svg"); }
+.icon-arrow-back { -webkit-mask-image: url("icons/arrow-back.svg"); mask-image: url("icons/arrow-back.svg"); }
+.icon-arrow-next { -webkit-mask-image: url("icons/arrow-next.svg"); mask-image: url("icons/arrow-next.svg"); }
 
 .nav-links a .btn-icon {
   width: 15px;

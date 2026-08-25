@@ -157,13 +157,17 @@ function render(animate = false) {
     codeLabel.className = "code";
     codeLabel.textContent = showOld ? color.oldCode : color.code;
 
-    info.appendChild(nameLabel);
-    info.appendChild(codeLabel);
-
     const hexLabel = document.createElement("span");
     hexLabel.className = "hex";
     hexLabel.textContent = color.hex;
-    info.appendChild(hexLabel);
+
+    const nameRow = document.createElement("div");
+    nameRow.className = "name-row";
+    nameRow.appendChild(nameLabel);
+    nameRow.appendChild(hexLabel);
+
+    info.appendChild(codeLabel);
+    info.appendChild(nameRow);
 
     swatch.addEventListener("click", () => copyHex(color.hex));
 
