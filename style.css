@@ -196,6 +196,24 @@ kbd {
   }
 }
 
+/* Mobile's left-to-right reveal fades through a soft gradient band
+   instead of a hard clip edge, so --reveal is animated (via @property,
+   which makes a custom property interpolatable) rather than clip-path. */
+@property --reveal {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@keyframes swatch-enter-horizontal {
+  from {
+    --reveal: 0%;
+  }
+  to {
+    --reveal: 114%;
+  }
+}
+
 .swatch.swatch-enter {
   animation: swatch-enter 0.55s cubic-bezier(0.65, 0, 0.35, 1) backwards;
 }
@@ -344,6 +362,13 @@ kbd {
 
   #palette {
     flex-direction: column;
+  }
+
+  .swatch.swatch-enter {
+    animation-name: swatch-enter-horizontal;
+    animation-fill-mode: both;
+    -webkit-mask-image: linear-gradient(to right, black calc(var(--reveal) - 14%), transparent var(--reveal));
+    mask-image: linear-gradient(to right, black calc(var(--reveal) - 14%), transparent var(--reveal));
   }
 
   .swatch {

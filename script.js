@@ -6,7 +6,12 @@ const toastEl = document.getElementById("toast");
 // { hex, code, name, oldName, originalHex, deltaE }.
 let palettes = [];
 let filteredPalettes = [];
-let lastIndex = -1;
+
+// Recently-picked indices, so Generate avoids repeats within this window
+// instead of only dodging the immediately-previous pick. Sized relative to
+// the pool so a small marker-set filter (e.g. 42 palettes for the 120 set)
+// doesn't run out of "fresh" options.
+let recentIndices = [];
 
 // Limit generated palettes to colors available in a specific physical
 // Ohuhu marker set. "320" means no restriction.
@@ -25,7 +30,7 @@ function paletteFitsSet(palette) {
 function rebuildFilteredPalettes() {
   filteredPalettes = markerSet === "320" ? palettes : palettes.filter(paletteFitsSet);
   if (!filteredPalettes.length) filteredPalettes = palettes;
-  lastIndex = -1;
+  recentIndices = [];
 }
 
 // Full Ohuhu marker catalog (from markers.json), keyed by code, so a
@@ -90,11 +95,13 @@ function goToHistory(index) {
 }
 
 function pickPalette() {
+  const windowSize = Math.min(10, Math.floor(filteredPalettes.length / 2));
   let index;
   do {
     index = Math.floor(Math.random() * filteredPalettes.length);
-  } while (index === lastIndex && filteredPalettes.length > 1);
-  lastIndex = index;
+  } while (recentIndices.includes(index) && filteredPalettes.length > 1);
+  recentIndices.push(index);
+  if (recentIndices.length > windowSize) recentIndices.shift();
   return filteredPalettes[index];
 }
 
