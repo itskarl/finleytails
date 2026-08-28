@@ -121,9 +121,22 @@ function textColorFor(hex) {
   return luminance > 0.55 ? "#111111" : "#ffffff";
 }
 
+// Prints the un-quantized design-palette colors each swatch was matched
+// from, since color.hex is already snapped to its nearest Ohuhu marker.
+function logOriginalPalette() {
+  const hexes = colors.map((c) => c.originalHex);
+  const swatches = hexes.map(() => "%c   ").join("");
+  const styles = hexes.map(
+    (hex) => `background:${hex}; padding:7px 14px; margin-right:2px; border-radius:3px;`
+  );
+  console.log(swatches, ...styles);
+  console.log("Original palette:", hexes.join(", "));
+}
+
 function render(animate = false) {
   backBtn.disabled = historyIndex <= 0;
   forwardBtn.disabled = historyIndex >= history.length - 1;
+  if (animate) logOriginalPalette();
   paletteEl.innerHTML = "";
   colors.forEach((color, i) => {
     const shouldAnimate = animate && !color.locked;
