@@ -248,11 +248,8 @@ kbd {
   text-transform: uppercase;
   padding: 6px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.28);
-}
-
-.info.on-light .code {
-  background: rgba(17, 17, 17, 0.1);
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .swatch .hex {
