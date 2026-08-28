@@ -68,7 +68,7 @@ BV415,Antwerp Blue,B290,Antwerp Blue,#194c79
 BV48,Distressed Denim,B260,Smoky Blue,#6391c3
 BV514,Vintage Navy,PB5,Prussian Blue,#2b3c68
 BV58,Crystal Blue,B140,Aquamarine,#4388d6
-CG01,Cloud Grey,CG020,Neutral Grey 02,#cdd6d1
+CG01,Cloud Grey,CG020,Neutral Grey 02,#d8dedb
 CG02,Light Grey,CG030,Neutral Grey 03,#b5bebd
 CG17,Cool Grey,CG5,Cool Grey II 5,#595f6d
 CG18,Icy Grey,CG II 04,Cool Grey II 4,#666e7b
@@ -222,7 +222,7 @@ WG01,Lite Lavender,RG110,Red Grey 11,#cac0c8
 WG04,Icy Lavender,RG120,Red Grey 12,#a398a8
 WG06,Star Dust,RG150,Red Grey 150,#8a7f8d
 WG08,Heathered Grape,RG080,Red Grey 08,#62555c
-WG10,Porcelain,CG II 00,Cool Grey II 0,#d3d0d7
+WG10,Porcelain,CG II 00,Cool Grey II 0,#dfdce3
 WG26,Silver Grey,WG3,Warm Grey 3,#85787f
 WG27,Antique Silver,WG4,Warm Grey 4,#837a7f
 WG37,Dark Charcoal,WG09,Warm Grey 9,#2e2d32
@@ -289,13 +289,13 @@ YGY11,Collingwood Grey,WG01,Warm Grey 1,#c1ad94
 YGY13,Oyster Grey,WG050,Warm Grey 05,#b9b2a0
 YGY17,Platinum Grey,WG070,Warm Grey 07,#8f827c
 YGY18,Stone Grey,WG090,Warm Grey 09,#625954
-YR00,Barely Blush,E010,Pale Fruit Pink,#ebc99c
+YR00,Barely Blush,E010,Pale Fruit Pink,#ebd5b8
 YR015,Burnt Orange,YR172,Tiger Lily,#bc570f
-YR03,Pastel Blush,YR220,Yellowish Shade,#f0b384
-YR04,Pastel Peach,R18,Pastel Peach,#f1cc98
+YR03,Pastel Blush,YR220,Yellowish Shade,#ebc6a8
+YR04,Pastel Peach,R18,Pastel Peach,#efd4ad
 YR06,Raw Cashew,E090,Eggshell White,#e9b77a
 YR07,Salmon Orange,YR4,Salmon Pink,#e99040
-YR11,Peachy Blush,YR110,Mellow Peach,#fec069
+YR11,Peachy Blush,YR110,Mellow Peach,#ffcfb2
 YR111,Persimmon,Y10,Apricot,#e86400
 YR112,Orange,YR3,Orange,#e85b00
 YR17,Sunset Orange,Y4,Quince,#f79613
@@ -314,8 +314,8 @@ YR47,Dusty Peach,R29,Pear Color,#e89972
 YR511,Pale Coral,YR090,Peach Pie,#f76913
 YR513,Papaya,YR190,Cadmium Orange,#ed4d1b
 YR515,Burnt Sienna,YR5,Terra Cotta,#9b4417
-YR52,Cameo Rose,YR030,Carmine Red,#fabf93
-YR55,Pink Lemonade,E470,Tea Rose,#f1a277
+YR52,Cameo Rose,YR030,Carmine Red,#fcd3c1
+YR55,Pink Lemonade,E470,Tea Rose,#edad92
 YR57,Tropical Peach,BR208,Black Brown,#fd7751
 YR58,Pink Sand,R050,Chocolate Pink,#f68951
 YR59,Cantaloupe,YR070,Light Orange,#fb8134

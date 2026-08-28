@@ -256,21 +256,21 @@
   "oldCode": "E010",
   "name": "Barely Blush",
   "oldName": "Pale Fruit Pink",
-  "hex": "#ebc99c"
+  "hex": "#ebd5b8"
  },
  {
   "code": "YR03",
   "oldCode": "YR220",
   "name": "Pastel Blush",
   "oldName": "Yellowish Shade",
-  "hex": "#f0b384"
+  "hex": "#ebc6a8"
  },
  {
   "code": "YR04",
   "oldCode": "R18",
   "name": "Pastel Peach",
   "oldName": "Pastel Peach",
-  "hex": "#f1cc98"
+  "hex": "#efd4ad"
  },
  {
   "code": "YR06",
@@ -298,7 +298,7 @@
   "oldCode": "YR110",
   "name": "Peachy Blush",
   "oldName": "Mellow Peach",
-  "hex": "#fec069"
+  "hex": "#ffcfb2"
  },
  {
   "code": "YR17",
@@ -410,14 +410,14 @@
   "oldCode": "YR030",
   "name": "Cameo Rose",
   "oldName": "Carmine Red",
-  "hex": "#fabf93"
+  "hex": "#fcd3c1"
  },
  {
   "code": "YR55",
   "oldCode": "E470",
   "name": "Pink Lemonade",
   "oldName": "Tea Rose",
-  "hex": "#f1a277"
+  "hex": "#edad92"
  },
  {
   "code": "YR57",
@@ -1922,7 +1922,7 @@
   "oldCode": "CG020",
   "name": "Cloud Grey",
   "oldName": "Neutral Grey 02",
-  "hex": "#cdd6d1"
+  "hex": "#d8dedb"
  },
  {
   "code": "CG02",
@@ -2104,7 +2104,7 @@
   "oldCode": "CG II 00",
   "name": "Porcelain",
   "oldName": "Cool Grey II 0",
-  "hex": "#d3d0d7"
+  "hex": "#dfdce3"
  },
  {
   "code": "WG26",
