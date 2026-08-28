@@ -249,7 +249,7 @@ kbd {
   padding: 6px 14px;
   border-radius: 999px;
   color: #fff;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .swatch .hex {
