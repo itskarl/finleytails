@@ -376,6 +376,23 @@ h3,
   padding-top: 40px;
 }
 
+.contact-card {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-card p {
+  margin: 0 0 24px;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.contact-card p a {
+  color: var(--ink);
+  font-weight: 700;
+}
+
 .section-head {
   display: flex;
   align-items: flex-end;
@@ -906,6 +923,7 @@ h3,
 
 .footer-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
 }
 
