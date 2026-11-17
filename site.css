@@ -9,24 +9,14 @@
   --orange-dark: #db7420;
   --amazon: #c2680f;
   --amazon-dark: #a8570c;
-  --cream: #f7f1e2;
-  --paper: #fdfbf6;
+  --cream: #f4f5f8;
+  --paper: #ffffff;
   --font-display: "Fredoka", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  /* Retro horizontal bands, boldest first and tapering to nothing —
-     used as a muted divider anchored just below the page header on
-     the Books and Weekly Free pages. */
-  --retro-top-stripes: linear-gradient(
-    to bottom,
-    rgba(140, 74, 107, 0.28) 0px, rgba(140, 74, 107, 0.28) 8px, transparent 8px, transparent 14px,
-    rgba(168, 87, 12, 0.26) 14px, rgba(168, 87, 12, 0.26) 19px, transparent 19px, transparent 24px,
-    rgba(194, 104, 15, 0.25) 24px, rgba(194, 104, 15, 0.25) 28px, transparent 28px, transparent 33px,
-    rgba(215, 106, 92, 0.24) 33px, rgba(215, 106, 92, 0.24) 36px, transparent 36px, transparent 40px,
-    rgba(226, 121, 74, 0.22) 40px, rgba(226, 121, 74, 0.22) 43px, transparent 43px, transparent 47px,
-    rgba(239, 134, 50, 0.21) 47px, rgba(239, 134, 50, 0.21) 49px, transparent 49px, transparent 53px,
-    rgba(245, 158, 11, 0.2) 53px, rgba(245, 158, 11, 0.2) 55px, transparent 55px, transparent 59px,
-    rgba(245, 180, 49, 0.17) 59px, rgba(245, 180, 49, 0.17) 60px, transparent 60px, transparent 64px,
-    rgba(251, 191, 83, 0.15) 64px, rgba(251, 191, 83, 0.15) 65px, transparent 65px, transparent 90px
-  );
+  /* Two-tone peach sunburst rays — used behind the home page hero and
+     the Books, Weekly Free and Contact pages. Each place sets where
+     the rays fan out from. */
+  --ray-dark: #ffe6cf;
+  --ray-light: #fff4ea;
 }
 
 h1,
@@ -65,9 +55,13 @@ h3,
   background: transparent;
 }
 
-.palette-page .site-nav,
-.books-page .site-nav {
+.palette-page .site-nav {
   background: var(--paper);
+}
+
+/* Transparent so the page-header glow shows through behind it. */
+.books-page .site-nav {
+  background: transparent;
 }
 
 .page-header {
@@ -83,11 +77,14 @@ h3,
   position: absolute;
   left: 50%;
   right: 50%;
-  top: 0;
-  height: 90px;
+  top: -120px;
+  bottom: 0;
   margin-left: -50vw;
   margin-right: -50vw;
-  background: var(--retro-top-stripes);
+  /* Rays fan out from just above the page title (this layer starts
+     120px above the header, behind the nav). */
+  background: repeating-conic-gradient(from 0deg at 50% 230px,
+    var(--ray-dark) 0deg 6deg, var(--ray-light) 6deg 12deg);
   pointer-events: none;
 }
 
@@ -170,29 +167,9 @@ h3,
   position: relative;
   overflow: hidden;
   padding: 110px 24px;
-  background:
-    url("art/retro-waves.svg") no-repeat bottom center / 100% 220px,
-    linear-gradient(
-      160deg,
-      #fbdcdc 0%,
-      #fdf3d8 18%,
-      #fdfbf2 36%,
-      #d8e8f7 52%,
-      #f3fbee 68%,
-      #d9f0dc 84%,
-      #fdf6e8 100%
-    );
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: -40% -20%;
-  background:
-    radial-gradient(ellipse 60% 30% at 20% 20%, rgba(255, 255, 255, 0.75), transparent 70%),
-    radial-gradient(ellipse 70% 35% at 80% 45%, rgba(255, 255, 255, 0.7), transparent 70%),
-    radial-gradient(ellipse 65% 30% at 35% 80%, rgba(255, 255, 255, 0.65), transparent 70%);
-  pointer-events: none;
+  /* Rays fan out from behind Finley. */
+  background: repeating-conic-gradient(from 0deg at 78% 55%,
+    var(--ray-dark) 0deg 6deg, var(--ray-light) 6deg 12deg);
 }
 
 .hero-inner {
@@ -318,6 +295,7 @@ h3,
 .icon-book-open { -webkit-mask-image: url("icons/book-open.svg"); mask-image: url("icons/book-open.svg"); }
 .icon-gift { -webkit-mask-image: url("icons/gift.svg"); mask-image: url("icons/gift.svg"); }
 .icon-palette { -webkit-mask-image: url("icons/palette.svg"); mask-image: url("icons/palette.svg"); }
+.icon-image { -webkit-mask-image: url("icons/image.svg"); mask-image: url("icons/image.svg"); }
 .icon-download { -webkit-mask-image: url("icons/download.svg"); mask-image: url("icons/download.svg"); }
 .icon-arrow-back { -webkit-mask-image: url("icons/arrow-back.svg"); mask-image: url("icons/arrow-back.svg"); }
 .icon-arrow-next { -webkit-mask-image: url("icons/arrow-next.svg"); mask-image: url("icons/arrow-next.svg"); }
@@ -818,6 +796,28 @@ h3,
   flex-shrink: 0;
 }
 
+/* Sunburst pages (Books, Weekly Free): the rays are the page background,
+   so they run unbroken from the top, behind the header and the main
+   content, until a section with its own background (the footer, or
+   "This page is from" on Weekly Free). */
+.sunburst-page {
+  background: repeating-conic-gradient(from 0deg at 50% 110px,
+    var(--ray-dark) 0deg 6deg, var(--ray-light) 6deg 12deg);
+}
+
+.sunburst-page .page-header::before {
+  display: none;
+}
+
+.sunburst-page .collections {
+  background: transparent;
+}
+
+.sunburst-page .weekly-feature {
+  background: transparent;
+  padding-bottom: 48px;
+}
+
 .weekly-source {
   background: var(--paper);
   padding: 40px 40px 90px;
@@ -897,7 +897,7 @@ h3,
 
 .site-footer {
   background: var(--paper);
-  border-top: 1px solid #eee7d8;
+  border-top: 1px solid #e8eaef;
   padding: 48px 40px 56px;
 }
 
@@ -947,6 +947,259 @@ h3,
 }
 
 /* ---------- Responsive ---------- */
+
+/* ---------- Gallery ---------- */
+
+.gallery-section {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 8px 40px 90px;
+}
+
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.gallery-chip {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(31, 42, 58, 0.1);
+  transition: background 0.15s, color 0.15s, transform 0.15s;
+}
+
+.gallery-chip:hover {
+  transform: translateY(-1px);
+}
+
+.gallery-chip[aria-pressed="true"] {
+  background: var(--orange);
+  color: #fff;
+}
+
+.gallery-chip:focus-visible {
+  outline: none;
+  border-color: var(--ink);
+}
+
+/* Masonry-style columns so square-ish and wide photos both fit. */
+.gallery-grid {
+  columns: 3 280px;
+  column-gap: 18px;
+}
+
+.gallery-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  cursor: zoom-in;
+  break-inside: avoid;
+  box-shadow: 0 6px 18px rgba(31, 42, 58, 0.14);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(31, 42, 58, 0.2);
+}
+
+.gallery-item:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gallery-tag {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(31, 42, 58, 0.7);
+  padding: 4px 10px;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.gallery-item:hover .gallery-tag,
+.gallery-item:focus-visible .gallery-tag {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: none) {
+  .gallery-tag {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.gallery-cta {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.gallery-cta p {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+.gallery-cta .hero-cta {
+  justify-content: center;
+}
+
+/* Full-screen photo viewer */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-lightbox[hidden] {
+  display: none;
+}
+
+.gallery-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 26, 36, 0.88);
+}
+
+.gallery-lightbox-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  max-width: min(92vw, 1100px);
+}
+
+.gallery-lightbox-img {
+  max-width: 100%;
+  max-height: 82vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-lightbox-caption {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.gallery-lightbox-close,
+.gallery-lightbox-nav {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-lightbox-close {
+  top: 18px;
+  right: 18px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.gallery-lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.gallery-lightbox-nav .btn-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  vertical-align: 0;
+}
+
+.gallery-lightbox-prev { left: 18px; }
+.gallery-lightbox-next { right: 18px; }
+
+@media (max-width: 640px) {
+  .gallery-section {
+    padding: 0 16px 60px;
+  }
+
+  /* One swipeable row of filters instead of several stacked rows. */
+  .gallery-filters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    margin: 0 -16px 20px;
+    padding: 4px 16px 8px;
+    scrollbar-width: none;
+  }
+
+  .gallery-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-chip {
+    flex: none;
+  }
+
+  .gallery-grid {
+    columns: 2;
+    column-gap: 12px;
+  }
+
+  .gallery-item {
+    margin-bottom: 12px;
+    border-radius: 12px;
+  }
+
+  .gallery-tag {
+    display: none;
+  }
+
+  .gallery-lightbox-nav {
+    top: auto;
+    bottom: 18px;
+    transform: none;
+  }
+}
 
 @media (max-width: 900px) {
   .cards {
@@ -1050,6 +1303,9 @@ h3,
 
   .hero {
     padding: 90px 20px 60px;
+    /* Stacked layout: Finley is on top, so fan the rays out from there. */
+    background: repeating-conic-gradient(from 0deg at 50% 150px,
+      var(--ray-dark) 0deg 6deg, var(--ray-light) 6deg 12deg);
   }
 
   .hero-inner {

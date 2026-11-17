@@ -103,12 +103,12 @@ const WEEKLY_BOOKS = [
     etsy: "https://www.etsy.com/listing/4312236579/cozy-critters-with-big-butts-pdfjpg-40",
     amazon: "https://www.amazon.com/Cozy-Critters-Big-Butts-Bold-Line/dp/B0F6SXK31T",
     pages: [
-      "weekly-pages/Cozy_Critters_with_Big_Butts_09.jpg",
+      "weekly-pages/Cozy_Critters_with_Big_Butts_43.jpg",
       "weekly-pages/Cozy_Critters_with_Big_Butts_10.jpg",
       "weekly-pages/Cozy_Critters_with_Big_Butts_13.jpg",
       "weekly-pages/Cozy_Critters_with_Big_Butts_31.jpg",
       "weekly-pages/Cozy_Critters_with_Big_Butts_34.jpg",
-      "weekly-pages/Cozy_Critters_with_Big_Butts_43.jpg",
+      "weekly-pages/Cozy_Critters_with_Big_Butts_09.jpg",
     ],
   },
   {
